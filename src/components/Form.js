@@ -6,7 +6,8 @@ function Form() {
     <form>
       <input></input>
     </form>
-  </div>)
+  </div>
+  )
 }
 
 export default Form;
