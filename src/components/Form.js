@@ -1,11 +1,12 @@
 import React from 'react';
 
 function Form() {
+  return (
   <div>
     <form>
-      <input>I am a form</input>
+      <input></input>
     </form>
-  </div>
+  </div>)
 }
 
 export default Form;
