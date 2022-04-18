@@ -6,7 +6,7 @@ import Form from './Form';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header className="App-header" />
       <Button />
       <Form />
     </div>
