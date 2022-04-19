@@ -4,9 +4,19 @@ import Header from './Header';
 import Form from './Form';
 import Navigation from './Navigation';
 import Todo from './Todo';
+// import Priority from './Priority';
+// import Completed from './Completed';
 
 function App() {
   const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:3001/todos")
+    .then(response => response.json())
+    .then((data) => {
+      setTodos(data)
+    });
+  }, []);
 
   const onTodoSubmit = (newTodo) => {
     const configObj = {
@@ -25,20 +35,14 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    fetch("http://localhost:3001/todos")
-    .then(response => response.json())
-    .then((data) => {
-      setTodos(data)
-    });
-  }, []);
-
   return (
     <div className='Main'>
       <Header />
       <Navigation />
       <Form onTodoSubmit={onTodoSubmit}/>
       <Todo todos={todos}/>
+      {/* <Priority /> */}
+      {/* <Completed /> */}
     </div>
   );
 }

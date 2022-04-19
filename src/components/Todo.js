@@ -1,14 +1,15 @@
 import React from "react";
 
-function Todo(){
+function Todo({ todos }){
   return (
     <div>
       <p>Todo List</p>
       <ul>
-        <li>Todo</li>
-        <li>Todo</li>
-        <li>Todo</li>
-        <li>Todo</li>
+        {todos.map(todo => {
+          return(
+            <li>{todo.input}</li>
+          )
+        })}
       </ul>
     </div>
   );

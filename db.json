@@ -2,8 +2,38 @@
   "todos": [
     {
       "id": 1,
-      "priority": "1",
+      "priority": true,
       "input": "Help"
+    },
+    {
+      "input": "asdf",
+      "priority": false,
+      "id": 2
+    },
+    {
+      "input": "asdf",
+      "priority": false,
+      "id": 3
+    },
+    {
+      "input": "fdsa",
+      "priority": true,
+      "id": 4
+    },
+    {
+      "input": "dfdsaf",
+      "priority": true,
+      "id": 5
+    },
+    {
+      "input": "asdf",
+      "priority": true,
+      "id": 6
+    },
+    {
+      "input": "fdfs",
+      "priority": false,
+      "id": 7
     }
   ]
 }
