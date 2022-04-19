@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 function Form({ onTodoSubmit }) {
   const [inputText, setInputText] = useState("")
   const [priority, setPriority] = useState(false)
-  // onSubmit(event) => // grab input values from state, make object, pass to onTodoSubmit
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,7 +21,7 @@ function Form({ onTodoSubmit }) {
       <input 
         type="text" 
         value={inputText} 
-        onChange={(event) => setInputText(event.target.value)}></input> { /* give input name, make it controlled, add input for priority, make it controlled */ }
+        onChange={(event) => setInputText(event.target.value)}></input>
       <input 
         type="checkbox" 
         checked={priority} 
