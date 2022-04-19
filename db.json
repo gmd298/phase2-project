@@ -4,6 +4,16 @@
       "id": 1,
       "priority": "1",
       "input": "Help"
+    },
+    {
+      "inputText": "asdf",
+      "priority": true,
+      "id": 2
+    },
+    {
+      "inputText": "asdf",
+      "priority": false,
+      "id": 3
     }
   ]
 }

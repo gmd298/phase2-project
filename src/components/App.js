@@ -25,15 +25,12 @@ function App() {
     })
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-    
-  // }
-
   useEffect(() => {
     fetch("http://localhost:3001/todos")
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then((data) => {
+      setTodos(data)
+    });
   }, []);
 
   return (
