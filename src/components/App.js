@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import "../index.css";
 import Header from './Header';
-import Form from './Form';
 import Navigation from './Navigation';
-import Todo from './Todo';
-// import Priority from './Priority';
-// import Completed from './Completed';
+import Priority from './Priority';
+import Completed from './Completed';
+import Home from './Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [priorityTodos, setPriorityTodos] = useState("")
+
+  const [page, setPage] = useState("/")
 
   useEffect(() => {
     fetch("http://localhost:3001/todos")
     .then(response => response.json())
     .then((data) => {
       setTodos(data)
+      setPriorityTodos(data)
     });
   }, []);
 
@@ -36,14 +45,26 @@ function App() {
   }
 
   return (
-    <div className='Main'>
-      <Header />
-      <Navigation />
-      <Form onTodoSubmit={onTodoSubmit}/>
-      <Todo todos={todos}/>
-      {/* <Priority /> */}
-      {/* <Completed /> */}
-    </div>
+    <Router>
+      <div className='Main'>
+        <Header />
+        <Navigation onChangePage={setPage} />
+        <Switch>
+          <Route path="/priority">
+            <Priority todos={priorityTodos} setPriorityTodos={setPriorityTodos}/>
+          </Route>
+          <Route path="/completed">
+            <Completed />
+          </Route>
+          <Route exact path="/">
+            <Home todos={todos} onTodoSubmit={onTodoSubmit}/>
+          </Route>
+          <Route path='*'>
+            <h1>404 not found</h1>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
