@@ -2,7 +2,9 @@ import React from "react";
 
 function Completed() {
   return (
-    <div></div>
+    <div>
+      <h3>No Completed Todos</h3>
+    </div>
   )
 }
 

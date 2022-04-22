@@ -5,12 +5,7 @@ import Navigation from './Navigation';
 import Priority from './Priority';
 import Completed from './Completed';
 import Home from './Home';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -45,7 +40,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Route>
       <div className='Main'>
         <Header />
         <Navigation onChangePage={setPage} />
@@ -54,7 +49,7 @@ function App() {
             <Priority todos={priorityTodos} setPriorityTodos={setPriorityTodos}/>
           </Route>
           <Route path="/completed">
-            <Completed />
+            <Completed todos={todos} setTodos={setTodos}/>
           </Route>
           <Route exact path="/">
             <Home todos={todos} onTodoSubmit={onTodoSubmit}/>
@@ -64,7 +59,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </Router>
+    </Route>
   );
 }
 

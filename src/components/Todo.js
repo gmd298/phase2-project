@@ -1,13 +1,18 @@
 import React from "react";
 
-function Todo({ todos }){
+function Todo({ todos, setTodos }){
+
+  function handleClick() {
+    todos.push(todos.completed = true)
+  }
+
   return (
     <div>
       <p>Todo List</p>
       <ul>
         {todos.map(todo => {
           return(
-            <li>{todo.input}</li>
+            <li onDoubleClick={handleClick}>{todo.input}</li>
           )
         })}
       </ul>

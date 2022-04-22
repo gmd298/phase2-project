@@ -34,6 +34,11 @@
       "input": "fdfs",
       "priority": false,
       "id": 7
+    },
+    {
+      "input": "Holy cow!",
+      "priority": true,
+      "id": 8
     }
   ]
 }

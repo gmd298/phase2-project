@@ -1,35 +1,16 @@
 import React from "react";
 
 
-function Priority({todos, setPriorityTodos}){
+function Priority({todos}){
 
-
-    const filtered = todos.filter((todo) => {
-      return todo.priority.includes(true) 
-    })
-    setPriorityTodos(filtered)
-
-
-  // function filterByPri() {
-  //   const filtered = todos.filter((todo) => {
-  //     return todo.input
-  //   })
-  // }
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/todos")
-  //   .then(response => response.json())
-  //   .then((data) => {
-  //     setTodos(data)
-  //   });
-  // }, []);
-
-
-
+  
   return (
     <div>
-        <ul>
-          <li>{todos.input}</li>
-        </ul>
+      <ul>
+        {todos.filter(todo => todo.priority === true).map(filteredTodos => (
+          <li key={filteredTodos.priority}>{filteredTodos.input}</li>
+        ))}
+      </ul>
     </div>
   )
 }
